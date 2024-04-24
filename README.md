@@ -15,3 +15,16 @@ A interface `UserDetailsService` é usada pelo `DaoAuthenticationProvider` para 
 O Spring Security fornece implementações em memória e JDBC da `UserDetailsService`. Você pode definir autenticação personalizada expostando um `UserDetailsService` personalizado como um bean. A interface `UserDetailsService` é usada em todo o framework como um objeto de acesso a dados (DAO) e é a estratégia usada pelo `DaoAuthenticationProvider`. A interface requer apenas um método de leitura somente, o que simplifica o suporte para novas estratégias de acesso a dados.
 
 Em resumo, a interface `UserDetails` representa o usuário autenticado no framework Spring Security, e a interface `UserDetailsService` é usada para carregar dados específicos do usuário para autenticação.
+
+
+# Classe `OncePerRequestFilter`
+
+A classe `OncePerRequestFilter` é uma classe abstrata no framework Spring que fornece uma implementação conveniente da interface `Filter`. Ele garante que o filtro seja invocado apenas uma vez por solicitação, mesmo que a solicitação seja encaminhada várias vezes dentro da mesma sessão HTTP.
+
+A classe `OncePerRequestFilter` é projetada para ser usada com o framework Spring MVC e é frequentemente usada para executar tarefas que precisam ser executadas uma vez por solicitação, como autenticação e autorização.
+
+Para usar a classe `OncePerRequestFilter`, você precisa substituir o método `doFilterInternal()`, que é chamado uma vez por solicitação. O método recebe três parâmetros: `ServletRequest`, `ServletResponse`, e `FilterChain`. O método `doFilterInternal()` deve chamar o método `doFilter()` do objeto `FilterChain` para passar a solicitação e a resposta para o próximo filtro na cadeia.
+
+A classe `OncePerRequestFilter` fornece vários métodos que podem ser usados para personalizar o comportamento do filtro, como `shouldNotFilter()` e `shouldFilter()`. O método `shouldNotFilter()` é usado para determinar se o filtro deve ser invocado para uma solicitação específica, e o método `shouldFilter()` é usado para determinar se o filtro deve ser invocado em absoluto.
+
+Em resumo, a classe `OncePerRequestFilter` é uma classe abstrata no framework Spring que fornece uma implementação conveniente da interface `Filter`. Ele garante que o filtro seja invocado apenas uma vez por solicitação e é frequentemente usado para executar tarefas que precisam ser executadas uma vez por solicitação, como autenticação e autorização. A classe fornece vários métodos que podem ser usados para personalizar o comportamento do filtro.
