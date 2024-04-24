@@ -1,5 +1,7 @@
 # Spring Security e Json Web Token (JWT)
 
+## Classes e Interfaces utilizadas: 
+
 ## Interface `UserDetails` e `UserDetailsService`
 
 A interface `UserDetails` é parte do framework Spring Security e representa o usuário autenticado. Ele contém detalhes como o nome de usuário, senha, autoridades (funções), e outros atributos. A interface `UserDetails` tem vários métodos, incluindo:
